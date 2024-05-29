@@ -10,19 +10,15 @@ use Carbon\Carbon;
 
 class DividaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
-    }
+        $dividas = Divida::all();
 
-    public function create()
-    {
-        //
+        return response()->json([
+            'message' => 'Todas as Dividas',
+            'dividas' => $dividas,
+        ], 201);
+
     }
 
     public function store(Request $request)
@@ -88,12 +84,7 @@ class DividaController extends Controller
 
     public function show(Divida $divida)
     {
-        //
-    }
 
-    public function edit(Divida $divida)
-    {
-        //
     }
 
     public function update(Request $request, Divida $divida)
